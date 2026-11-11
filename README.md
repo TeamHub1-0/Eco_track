@@ -142,10 +142,10 @@ git push origin feature/your-feature-name
 
 | Name | Role | GitHub |
 | :--- | :--- | :--- |
-| **Team Member 1** | Team Lead / Full-Stack | [@username](https://github.com/username) |
-| **Team Member 2** | Frontend Developer | [@username](https://github.com/username) |
-| **Team Member 3** | Backend Developer | [@username](https://github.com/username) |
-| **Team Member 4** | Database Admin / QA | [@username](https://github.com/username) |
+| **Htet Aung Linn** | Auth & Security / full-stack | [@Ezio222222](https://github.com/Ezio222222) |
+| **Thaw Sitt Han** | Reporting & AI / full-stack | [@username](https://github.com/username) |
+| **Shan Shan** | Mapping & Ops / full-stack| [@pyaephyo-hein](https://github.com/pyaephyo-hein) |
+| **Pyae Phyo Hein** | Engagement / full-stack | [@username](https://github.com/username) |
 
 ---
 
