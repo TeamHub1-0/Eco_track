@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function Navbar() {
   return (
-    <header className="sticky top-0 z-50 bg-[#F8F9FA] border-b border-gray-200 shadow-sm">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         
         {/* Brand Logo */}

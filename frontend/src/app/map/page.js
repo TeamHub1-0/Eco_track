@@ -1,14 +1,30 @@
 // src/app/map/page.js
+'use client';
+
+import dynamic from 'next/dynamic';
+
+// Dynamically import the map with Server-Side Rendering disabled
+const PollutionMap = dynamic(() => import('@/components/PollutionMap'), {
+  ssr: false,
+  loading: () => (
+    <div className="h-[550px] w-full rounded-2xl bg-gray-100 animate-pulse flex items-center justify-center">
+      <p className="text-gray-500 font-medium">Loading interactive map...</p>
+    </div>
+  ),
+});
+
 export default function MapPage() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      <h1 className="text-3xl font-bold text-[#212529]">Community Pollution Map</h1>
-      <p className="mt-2 text-gray-600">View reported waste locations and active cleanup areas across Pyin Oo Lwin.</p>
-      
-      {/* Map container placeholder */}
-      <div className="mt-6 w-full h-[500px] bg-gray-100 rounded-2xl border border-gray-200 flex items-center justify-center shadow-sm">
-        <span className="text-gray-400 font-medium">[ Interactive Map Integration Goes Here ]</span>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="mb-6">
+        <h1 className="text-3xl font-bold text-[#212529]">Community Pollution Map</h1>
+        <p className="text-gray-600 mt-1">
+          Click on any pin to inspect reported waste details and cleanup status.
+        </p>
       </div>
+
+      {/* Renders the map safely in the browser */}
+      <PollutionMap />
     </div>
   );
 }
