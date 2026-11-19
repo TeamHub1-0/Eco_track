@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import MyReports from "@/components/report/MyReports";
-
+import NearbyReports from "./NearbyReport";
 const TABS = [
   { id: "my-reports", label: "My Reports" },
   { id: "nearby", label: "Nearby Reports" },
@@ -38,7 +38,7 @@ export default function ReportsDashboard() {
       {/* Tab Content */}
       <div className="p-6">
         {activeTab === "my-reports" && <MyReports />}
-        {/*{activeTab === "nearby" && <NearbyReports />} */}
+        {activeTab === "nearby" && <NearbyReports />} 
       </div>
     </div>
   );
