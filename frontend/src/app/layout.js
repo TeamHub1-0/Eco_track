@@ -1,7 +1,7 @@
-import 'leaflet/dist/leaflet.css';
+import "leaflet/dist/leaflet.css";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from '@/components/Navbar.jsx';
+import Navbar from "@/components/Navbar.jsx";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,9 +24,10 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      
-      <body className="min-h-full flex flex-col"><Navbar />
-      {children}</body>
+      <body className="min-h-full flex flex-col">
+        <Navbar />
+        <main className="flex-1 bg-white">{children}</main>
+      </body>
     </html>
   );
 }
