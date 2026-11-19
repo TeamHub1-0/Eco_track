@@ -1,0 +1,81 @@
+# F02 – Garbage Reporting Management
+
+**Description:** Allows citizens to report garbage problems by submitting photographs, locations, and additional information.
+
+## US02.1 – Submit Garbage Report
+
+**As a** registered user,  
+**I want** to submit a garbage report with a location and optional photographs and description,  
+**so that** environmental problems can be identified and addressed.
+
+### Acceptance Criteria
+
+- Users can upload up to 5 supported photographs.
+- Photograph uploads are optional.
+- Users can provide an optional description.
+- Users can select their current location through the HTML5 Geolocation API or manually select a location on the map.
+- The system must receive valid latitude and longitude coordinates before accepting a report.
+- Users must select or confirm the reported waste category.
+- The system records the submission date and reporting user.
+- The system assigns a unique report identifier.
+- The report enters the PENDING status upon submission.
+
+### Rejection Conditions
+
+- The system must reject a report if latitude or longitude is missing or invalid.
+- The system must reject uploads exceeding the maximum of 5 photographs.
+- The system must reject unsupported photograph formats.
+- The system must reject photographs exceeding the configured file-size limit.
+- The system must reject invalid waste categories.
+
+### Important Business Rules
+
+- Photographs are optional.
+- Descriptions are optional.
+- A report can be submitted without photographs and without a description.
+- A valid geographic location is mandatory.
+- Location can come from GPS or manual map selection.
+- Manual location selection does not remove the requirement for valid coordinates.
+- Newly submitted reports must have PENDING status.
+
+---
+
+## US02.2 – Edit Report
+
+**As a** registered user,  
+**I want** to edit my report before it is reviewed,  
+**so that** I can correct inaccurate information.
+
+### Acceptance Criteria
+
+- Users can edit eligible reports.
+- Users cannot modify reports that have entered restricted processing states.
+- Changes are recorded in the report history.
+- Users can update report information and associated photographs according to the permitted editing rules.
+
+### Business Rules
+
+- Users can only edit their own reports unless they have appropriate administrative permissions.
+- Only reports in permitted statuses can be edited.
+- Every successful edit must be recorded in the report history.
+- Unauthorized or restricted modifications must be rejected.
+
+---
+
+## US02.3 – Track Report Status
+
+**As a** registered user,  
+**I want** to track my report's status,  
+**so that** I know whether the problem is being addressed.
+
+### Acceptance Criteria
+
+- Users can view their submitted reports.
+- Users can see the current status of each report.
+- Users can view important status changes.
+- Users receive notifications when significant updates occur.
+
+### Business Rules
+
+- Users can access their own reports.
+- Report status history must be retrieved from the report history records

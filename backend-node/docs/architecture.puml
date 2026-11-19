@@ -1,0 +1,55 @@
+@startuml garbage-report-component
+title F02 - Garbage Reporting Management
+left to right direction
+
+actor User
+component "Frontend" as FE
+
+package "Express.js Backend" {
+
+    component "Routes" as Routes
+    component "Controllers" as Controllers
+
+    package "Services" {
+        component "Create Report Service" as CreateService
+        component "Update Report Service" as UpdateService
+        component "Check Status Report Service" as TrackService
+    }
+
+    package "Repository Layer" {
+        interface "IReportRepository" as IReportRepo
+        component "MySQL Report Repository" as MySQLReportRepo
+    }
+}
+
+database "MySQL Database" as DB
+cloud "File Storage" as Storage
+
+User --> FE
+FE --> Routes
+Routes --> Controllers
+
+Controllers --> CreateService
+Controllers --> UpdateService
+Controllers --> TrackService
+
+CreateService --> IReportRepo
+UpdateService --> IReportRepo
+TrackService --> IReportRepo
+
+MySQLReportRepo ..|> IReportRepo
+
+MySQLReportRepo --> DB
+
+MySQLReportRepo --> Storage
+
+
+note right of MySQLReportRepo
+  Implements IReportRepository.
+  Handles database operations
+  Two main operations will be implemented using OOP.
+  1.Report Acess 
+  2.Image Acess
+end note
+
+@enduml
